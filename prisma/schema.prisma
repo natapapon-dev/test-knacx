@@ -1,0 +1,48 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model PatienRecord {
+  id              Int             @id @default(autoincrement())
+  uuid            String          @default(uuid()) @db.Uuid
+  prefix          String?
+  first_name      String?
+  middle_name     String?
+  last_name       String?
+  national_id     String?         @unique
+  gender          String?
+  date_of_birth   DateTime?
+  occupation      String?
+  race            String?
+  national        String?
+  religion        String?
+  blood_type      String?
+  rh              String?
+  nickname        String?
+  allergic        String?
+  hn              String?         @unique
+  foreign_id      String?         @unique
+  PatienAddresses PatienAddress[]
+}
+
+model PatienAddress {
+  id           Int           @id @default(autoincrement())
+  uuid         String        @default(uuid()) @db.Uuid
+  address      String?
+  province     String?
+  sub_district String?
+  district     String?
+  country      String?
+  postcode     String?
+  is_primary   Boolean
+  patien_id    Int
+  PatienRecord PatienRecord? @relation(fields: [patien_id], references: [id])
+}
