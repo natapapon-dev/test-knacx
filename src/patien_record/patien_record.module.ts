@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { PatienRecordService } from './services/patien_record.service';
-import { PatienRecordController } from './patien_record.controller';
+import { PatienRecordController } from './controller/patien_record.controller';
 import { ShareModule } from 'src/share/share.module';
 import { PatienRecordTodoService } from './services/patien_record.todo.service';
 import { PrismaService } from 'src/prisma/prisma.service';

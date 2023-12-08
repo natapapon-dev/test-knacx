@@ -8,10 +8,10 @@ import {
   Patch,
   Query,
 } from '@nestjs/common';
-import { PatienRecordReq, PatienRecordUpdateReq } from './patien_record.dto';
+import { PatienRecordReq, PatienRecordUpdateReq } from '../patien_record.dto';
 import { APIResponse } from 'src/share/share.dto';
 import { ShareService } from 'src/share/share.service';
-import { PatienRecordService } from './services/patien_record.service';
+import { PatienRecordService } from '../services/patien_record.service';
 
 @Controller('api/v1/patien-record')
 export class PatienRecordController {
